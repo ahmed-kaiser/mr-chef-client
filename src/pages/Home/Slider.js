@@ -51,7 +51,7 @@ const Slider = () => {
           </Button>
         </div>
         <div className="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 min-w-[250px] sm:max-w-sm text-white text-center">
-          <h1 className="font-serif font-bold text-2xl sm:text-4xl md:text-5xl text-yellow-700">
+          <h1 className="font-serif font-bold text-2xl sm:text-4xl md:text-5xl text-yellow-600">
             Your Personal Chef
           </h1>
           <p className="font-semibold py-2 sm:py-4 block text-sm sm:text-base max-w-[200px] sm:max-w-xs mx-auto text-slate-300">
