@@ -11,7 +11,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="py-2 bg-gray-100 text-gray-800 sticky top-0 z-10">
+    <nav className="py-2 bg-gray-100 text-gray-800 sticky top-0 z-20">
       <div className="container flex justify-between h-16 mx-auto max-w-screen-xl px-4 md:px-6">
         <Link
           to="/"
