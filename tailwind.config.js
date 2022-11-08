@@ -36,5 +36,8 @@ module.exports = {
 			stone: colors.stone,
 		}
   },
-  plugins: [require("@tailwindcss/aspect-ratio")],
+  plugins: [
+	require("@tailwindcss/aspect-ratio"),
+  	require('@tailwindcss/forms'),
+  ],
 }
