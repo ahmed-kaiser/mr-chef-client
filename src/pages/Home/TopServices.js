@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { RiStarLine, RiArrowRightLine } from "react-icons/ri";
+import Service from "../Shared_components/Service";
 
 const TopServices = () => {
   const [services, setServices] = useState([]);
@@ -19,12 +19,12 @@ const TopServices = () => {
         </h2>
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-3 sm:grid-cols-2 justify-items-center py-6">
           {services.map((service) => (
-            <Card key={service._id} service={service} />
+            <Service key={service._id} service={service} />
           ))}
         </div>
         <div className="flex items-center gap-4">
           <p className="grow border border-slate-100"></p>
-          <Link className="font-semibold text-sky-600 hover:text-sky-700 hover:underline">
+          <Link to="/services" className="font-semibold text-sky-600 hover:text-sky-700 hover:underline">
             {" "}
             Show All{" "}
           </Link>
@@ -32,37 +32,6 @@ const TopServices = () => {
         </div>
       </div>
     </section>
-  );
-};
-
-const Card = ({ service }) => {
-  const { _id, img, title, description, ratings } = service;
-  return (
-    <div className="max-w-xs rounded-md shadow-md bg-gray-100 text-gray-700">
-      <img
-        src={img}
-        alt=""
-        className="object-cover object-center w-full rounded-t-md h-72 bg-gray-500"
-      />
-      <div className="flex flex-col justify-between p-6 space-y-5">
-        <div className="space-y-2">
-          <h2 className="text-2xl font-semibold tracking-wide">{title}</h2>
-          <p>{description.split("", 60)} ....</p>
-          <p className="flex items-center gap-1">
-            <RiStarLine className="h-5 w-5 text-yellow-500" />
-            <span className="font-semibold">{ratings}</span>
-          </p>
-        </div>
-        <Link
-          to={`/services/${_id}`}
-          type="button"
-          className="flex items-center justify-center gap-2 w-full p-3 font-semibold tracking-wide rounded-md bg-sky-600 text-gray-100"
-        >
-          <span>Explore</span>
-          <RiArrowRightLine className="h-6 w-6" />
-        </Link>
-      </div>
-    </div>
   );
 };
 
