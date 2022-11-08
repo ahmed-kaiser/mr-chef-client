@@ -13,7 +13,7 @@ const Service = ({service}) => {
       />
       <div className="flex flex-col justify-between p-6 space-y-5">
         <div className="space-y-2">
-          <h2 className="text-2xl font-semibold tracking-wide">{title}</h2>
+          <h2 className="text-2xl font-semibold tracking-wide capitalize">{title}</h2>
           <p>{description.split("", 60)} ....</p>
           <p className="flex items-center gap-1">
             <RiStarLine className="h-5 w-5 text-yellow-500" />

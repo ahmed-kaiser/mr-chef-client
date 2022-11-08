@@ -31,8 +31,8 @@ const Navbar = () => {
         {/* ------ Menu in large screen -------- */}
         <ul className="hidden space-x-3 lg:flex items-center">
           {
-            menu.map(item => (
-              <li className="font-semibold">
+            menu.map((item, index) => (
+              <li key={index} className="font-semibold">
                 <NavLink
                   to={item.to}
                   end
@@ -47,8 +47,8 @@ const Navbar = () => {
         {/* ------ Menu in small screen -------- */}
         <ul className={`absolute top-16 space-y-4 lg:hidden items-center bg-gray-100 text-gray-800 w-52 h-screen pl-4 py-4 ${showMenu? 'left-0' : '-left-64'} duration-500`}>
         {
-            menu.map(item => (
-              <li className="font-semibold">
+            menu.map((item, index) => (
+              <li key={index} className="font-semibold">
                 <NavLink
                   to={item.to}
                   end
