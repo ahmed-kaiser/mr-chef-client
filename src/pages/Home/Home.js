@@ -1,5 +1,7 @@
 import useScrollTop from "../../hook/useScrollTop";
 import useSetTitle from "../../hook/useSetTitle";
+import About from "./About";
+import Contact from "./Contact";
 import Slider from "./Slider";
 import TopServices from "./TopServices";
 
@@ -11,6 +13,8 @@ const Home = () => {
         <>
             <Slider/>
             <TopServices />
+            <About />
+            <Contact />
         </>
     );
 };
