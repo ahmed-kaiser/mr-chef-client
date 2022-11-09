@@ -1,6 +1,10 @@
 import toast from "react-hot-toast";
+import useScrollTop from "../../hook/useScrollTop";
+import useSetTitle from "../../hook/useSetTitle";
 
 const AddService = () => {
+  useSetTitle("Add Service");
+  useScrollTop();
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;

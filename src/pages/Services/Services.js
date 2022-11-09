@@ -1,8 +1,12 @@
 import { useLoaderData } from "react-router-dom";
+import useScrollTop from "../../hook/useScrollTop";
+import useSetTitle from "../../hook/useSetTitle";
 import Service from "../Shared_components/Service";
 
 const Services = () => {
   const services = useLoaderData();
+  useSetTitle("All Services");
+  useScrollTop();
 
   return (
     <section className="my-10">

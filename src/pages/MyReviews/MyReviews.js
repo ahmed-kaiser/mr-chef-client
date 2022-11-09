@@ -1,10 +1,14 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../context/UserAuthContext";
+import useScrollTop from "../../hook/useScrollTop";
+import useSetTitle from "../../hook/useSetTitle";
 import Review from "./Review";
 
 const MyReviews = () => {
   const [reviews, setReviews] = useState([]);
   const { userInfo } = useContext(AuthContext);
+  useSetTitle("My Reviews");
+  useScrollTop();
   
   useEffect(() => {
     fetch(`http://localhost:5000/my_reviews?email=${userInfo.email}`)

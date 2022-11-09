@@ -5,6 +5,8 @@ import { useContext, useEffect, useState } from "react";
 import Review from "./Review";
 import { AuthContext } from "../../context/UserAuthContext";
 import toast from "react-hot-toast";
+import useSetTitle from "../../hook/useSetTitle";
+import useScrollTop from "../../hook/useScrollTop";
 
 const ServiceDetail = () => {
   const [showForm, setShoeForm] = useState(false);
@@ -12,6 +14,8 @@ const ServiceDetail = () => {
   const [refresh, setRefresh] = useState(false);
   const service = useLoaderData();
   const {userInfo} = useContext(AuthContext);
+  useSetTitle("Service Detail");
+  useScrollTop();
 
   const handleShowForm = () => {
     if(userInfo){

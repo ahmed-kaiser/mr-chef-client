@@ -2,10 +2,14 @@ import { useContext } from "react";
 import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/UserAuthContext";
+import useScrollTop from "../../hook/useScrollTop";
+import useSetTitle from "../../hook/useSetTitle";
 import SocialLinkButton from "../Shared_components/SocialLinkButton";
 
 const SignUp = () => {
   const { createUser } = useContext(AuthContext);
+  useSetTitle("Sign Up");
+  useScrollTop();
 
   const handleSubmit = (e) => {
     e.preventDefault();

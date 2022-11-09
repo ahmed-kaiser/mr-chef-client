@@ -3,11 +3,15 @@ import { useContext } from "react";
 import { AuthContext } from "../../context/UserAuthContext";
 import toast from "react-hot-toast";
 import SocialLinkButton from "../Shared_components/SocialLinkButton";
+import useSetTitle from "../../hook/useSetTitle";
+import useScrollTop from "../../hook/useScrollTop";
 
 const SignIn = () => {
   const { signInWithEmail } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
+  useSetTitle("Sign In");
+  useScrollTop();
 
   const from = location.state?.from?.pathname || "/";
 
