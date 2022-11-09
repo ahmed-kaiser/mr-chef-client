@@ -51,12 +51,11 @@ const Navbar = () => {
         <ul className="hidden space-x-3 lg:flex items-center">
           {menu.map((item, index) => {
             if (item.private && userInfo) {
-              return <ListItem item={item} index={index} />;
+              return <ListItem key={index} item={item} index={index} />;
             }
             if (!item.private) {
-              return <ListItem item={item} index={index} />;
+              return <ListItem key={index} item={item} index={index} />;
             }
-            return <></>;
           })}
         </ul>
         {/* ------ Menu in small screen -------- */}
@@ -92,12 +91,11 @@ const Navbar = () => {
           <ul className="pl-2 space-y-4">
             {menu.map((item, index) => {
               if (item.private && userInfo) {
-                return <ListItem item={item} index={index} sm={true} />;
+                return <ListItem key={index} item={item} index={index} sm={true} />;
               }
               if (!item.private) {
-                return <ListItem item={item} index={index} sm={true} />;
+                return <ListItem key={index} item={item} index={index} sm={true} />;
               }
-              return <></>;
             })}
             {userInfo ? (
               <li>
@@ -170,9 +168,9 @@ const Navbar = () => {
   );
 };
 
-const ListItem = ({ item, index, sm }) => {
+const ListItem = ({ item, sm }) => {
   return (
-    <li key={index} className="font-semibold">
+    <li className="font-semibold">
       <NavLink
         to={item.to}
         end
