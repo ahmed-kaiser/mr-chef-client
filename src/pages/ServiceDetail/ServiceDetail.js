@@ -19,10 +19,10 @@ const ServiceDetail = () => {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:5000/reviews?serviceId=${service._id}`)
+    fetch(`http://localhost:5000/reviews?serviceTitle=${service.title}`)
       .then((res) => res.json())
       .then((data) => setReviews(data));
-  }, [service._id, refresh]);
+  }, [service.title, refresh]);
 
   return (
     <section className="text-gray-800 py-10">
@@ -62,7 +62,7 @@ const ServiceDetail = () => {
         <div className="mt-16">
           <ReviewForm
             show={showForm}
-            serviceId={service._id}
+            serviceTitle={service.title}
             handleShowForm={handleShowForm}
             handleRefresh={handleRefresh}
           />

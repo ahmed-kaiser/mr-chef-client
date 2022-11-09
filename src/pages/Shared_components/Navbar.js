@@ -19,7 +19,7 @@ const Navbar = () => {
   const menu = [
     { title: "Home", to: "/" },
     { title: "Services", to: "/services" },
-    { title: "My Review", to: "/review" },
+    { title: "My Review", to: "/myReviews" },
     { title: "Add Service", to: "/add-service" },
     { title: "Blog", to: "/blog" },
   ];

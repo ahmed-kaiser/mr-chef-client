@@ -1,6 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "../layout/Root";
 import Home from "../pages/Home/Home";
+import MyReviews from "../pages/MyReviews/MyReviews";
 import ServiceDetail from "../pages/ServiceDetail/ServiceDetail";
 import Services from "../pages/Services/Services";
 import SignIn from "../pages/SignIn/SignIn";
@@ -33,6 +34,10 @@ const Routes = () => {
                 {
                     path: '/signUp',
                     element: <SignUp />
+                },
+                {
+                    path: '/myReviews',
+                    element: <MyReviews />
                 }
             ]
         }

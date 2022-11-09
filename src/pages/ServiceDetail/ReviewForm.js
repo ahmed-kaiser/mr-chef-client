@@ -3,7 +3,7 @@ import toast from "react-hot-toast";
 import { AuthContext } from "../../context/UserAuthContext";
 import RatingStar from "./RatingStar";
 
-const ReviewForm = ({ handleRefresh, serviceId, show, handleShowForm }) => {
+const ReviewForm = ({ handleRefresh, serviceTitle, show, handleShowForm }) => {
   const [ratings, setRating] = useState(0);
   const { userInfo } = useContext(AuthContext);
 
@@ -18,7 +18,7 @@ const ReviewForm = ({ handleRefresh, serviceId, show, handleShowForm }) => {
       userEmail: userInfo.email,
       name: userInfo.displayName,
       img: userInfo.photoURL,
-      serviceId,
+      serviceTitle,
       ratings,
       message,
       date: new Date(),
