@@ -1,17 +1,24 @@
 import { useLoaderData } from "react-router-dom";
 import { RiStarLine } from "react-icons/ri";
 import ReviewForm from "./ReviewForm";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Review from "./Review";
+import { AuthContext } from "../../context/UserAuthContext";
+import toast from "react-hot-toast";
 
 const ServiceDetail = () => {
   const [showForm, setShoeForm] = useState(false);
   const [reviews, setReviews] = useState([]);
   const [refresh, setRefresh] = useState(false);
   const service = useLoaderData();
+  const {userInfo} = useContext(AuthContext);
 
   const handleShowForm = () => {
-    setShoeForm(!showForm);
+    if(userInfo){
+      setShoeForm(!showForm);
+    }else{
+      toast.error("Please Sign up first.....")
+    }
   };
 
   const handleRefresh = () => {

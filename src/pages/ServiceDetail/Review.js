@@ -15,7 +15,7 @@ const Review = ({ review }) => {
             />
           </div>
           <div>
-            <h4 className="font-bold">{review.name}</h4>
+            <h4 className="font-bold">{review.name || 'No name'}</h4>
             <p></p>
             <span className="text-xs text-gray-400">
               Date: {review.date.slice(0, 10)} Time: {review.date.slice(11, 16)}

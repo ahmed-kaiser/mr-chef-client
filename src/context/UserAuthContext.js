@@ -21,18 +21,22 @@ const UserAuthContext = ({ children }) => {
   const googleProvider = new GoogleAuthProvider();
 
   const createUser = (email, password) => {
+    setIsLoading(true);
     return createUserWithEmailAndPassword(auth, email, password)
   };
 
   const signInWithEmail = (email, password) => {
+    setIsLoading(true);
     return signInWithEmailAndPassword(auth, email, password)
   };
 
   const signUpWithGoogle = () => {
+    setIsLoading(true);
     return signInWithPopup(auth, googleProvider)
   };
 
   const logOut = () => {
+    setIsLoading(true);
     return signOut(auth)
   };
 

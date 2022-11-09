@@ -67,7 +67,7 @@ const ReviewForm = ({ handleRefresh, serviceTitle, show, handleShowForm }) => {
           ></textarea>
           <button
             type="submit"
-            className="py-4 my-2 font-semibold rounded-md text-gray-100 bg-sky-400"
+            className="py-2.5 my-2 font-semibold rounded-md text-gray-100 bg-sky-600"
           >
             Leave feedback
           </button>

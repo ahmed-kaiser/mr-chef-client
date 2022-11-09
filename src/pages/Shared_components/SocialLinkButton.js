@@ -1,15 +1,21 @@
 import { useContext } from "react";
 import toast from "react-hot-toast";
 import { RiGoogleFill } from "react-icons/ri";
+import { useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/UserAuthContext";
 
 const SocialLinkButton = () => {
     const { signUpWithGoogle } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || "/";
 
     const handleClick = () => {
       signUpWithGoogle()
       .then(res => {
         toast.success(`Welcome ${res.user.displayName}`);
+        navigate(from, {replace:true});
       })
       .catch(err => toast.error(err.code))
     };

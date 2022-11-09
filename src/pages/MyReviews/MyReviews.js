@@ -15,8 +15,11 @@ const MyReviews = () => {
   return (
     <div className="py-10 mx-auto max-w-screen-xl px-4 md:px-6 ">
       {
+        reviews.length === 0 && <p className="font-semibold text-center text-gray-500">No reviews were added</p>
+      }
+      {
         reviews.map(review => (
-            <Review review={review} />
+            <Review key={review._id} review={review} reviews={reviews} setReviews={setReviews}  />
         ))
       }
     </div>

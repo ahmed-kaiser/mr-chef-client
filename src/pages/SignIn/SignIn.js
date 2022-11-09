@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../context/UserAuthContext";
 import toast from "react-hot-toast";
@@ -6,16 +6,21 @@ import SocialLinkButton from "../Shared_components/SocialLinkButton";
 
 const SignIn = () => {
   const { signInWithEmail } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || "/";
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
-    const password = form.password.password;
+    const password = form.password.value;
 
     signInWithEmail(email, password)
     .then(res => {
-        toast.success(`Welcome ${res.user.displayName}`)
+        toast.success(`Welcome ${res.user.displayName}`);
+        navigate(from, {replace:true});
     })
     .catch(err => toast.error(err.code))
   };
