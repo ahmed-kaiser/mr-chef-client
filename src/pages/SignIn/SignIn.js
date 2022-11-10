@@ -32,7 +32,7 @@ const SignIn = () => {
   };
 
   const verify = (data) => {
-    fetch('http://localhost:5000/verify', {
+    fetch('https://mr-chef-server-ahmed-kaiser.vercel.app/verify', {
       method: 'post',
       headers: {
         'content-type' : 'application/json'

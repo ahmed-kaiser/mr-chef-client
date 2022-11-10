@@ -25,13 +25,12 @@ const Routes = () => {
                 },
                 {
                     path: '/services',
-                    element: <Services />,
-                    loader: () => fetch('http://localhost:5000/services')
+                    element: <Services />
                 },
                 {
                     path: '/services/:id',
                     element: <ServiceDetail />,
-                    loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`)
+                    loader: ({ params }) => fetch(`https://mr-chef-server-ahmed-kaiser.vercel.app/services/${params.id}`)
                 },
                 {
                     path: '/signIn',

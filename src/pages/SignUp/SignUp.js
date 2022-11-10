@@ -30,7 +30,7 @@ const SignUp = () => {
         updateUserProfile(name);
       })
       .then(() => {
-        toast.success("Account Created Successfully")
+        toast.success("Account Created Successfully...");
         logOut();
         navigate('/signIn');
       })

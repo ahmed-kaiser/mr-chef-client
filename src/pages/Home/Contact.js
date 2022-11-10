@@ -12,7 +12,7 @@ const Contact = () => {
           <div className="text-gray-400">Feel free to contact......</div>
         </div>
         <div className="pt-4 sm:pr-4 grow flex items-center">
-            <img src={img} alt="" className="w-full h-full" />
+            <img src={img} alt="" className="w-full h-full rounded-xl" />
         </div>
       </div>
       <form

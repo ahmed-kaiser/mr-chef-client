@@ -13,7 +13,7 @@ const ReviewUpdateForm = ({ reviews, setReviews, id, prevRatings, message, showF
     e.preventDefault();
     const message = e.target.message.value;
 
-    fetch(`http://localhost:5000/my-reviews?id=${id}`, {
+    fetch(`https://mr-chef-server-ahmed-kaiser.vercel.app/my-reviews?id=${id}`, {
         method: 'put',
         headers:{
             'content-type': 'application/json'

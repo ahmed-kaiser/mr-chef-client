@@ -23,7 +23,7 @@ const ReviewForm = ({ handleRefresh, serviceTitle, show, handleShowForm }) => {
       message,
       date: new Date(),
     };
-    fetch("http://localhost:5000/reviews", {
+    fetch("https://mr-chef-server-ahmed-kaiser.vercel.app/reviews", {
       method: "post",
       headers: {
         "content-type": "application/json",

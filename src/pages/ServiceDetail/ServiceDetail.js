@@ -30,7 +30,7 @@ const ServiceDetail = () => {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:5000/reviews?serviceTitle=${service.title}`)
+    fetch(`https://mr-chef-server-ahmed-kaiser.vercel.app/reviews?serviceTitle=${service.title}`)
       .then((res) => res.json())
       .then((data) => setReviews(data));
   }, [service.title, refresh]);
@@ -67,7 +67,7 @@ const ServiceDetail = () => {
             onClick={handleShowForm}
             className="absolute right-0 -bottom-10 bg-slate-100 pl-6 pr-3 py-2 rounded-bl-full font-semibold text-sky-500 hover:underline underline-offset-4"
           >
-            Make Review
+            Give Review
           </button>
         </div>
         <div className="mt-16">
@@ -79,8 +79,8 @@ const ServiceDetail = () => {
           />
         </div>
         <div>
-          <p className="font-semibold text-gray-500 text-center">
-            {reviews.length === 0 && "No review yet"}
+          <p className="font-semibold text-gray-400 text-center">
+            {reviews.length === 0 && "No reviews yet"}
           </p>
           {reviews.map((review) => (
             <Review key={review._id} review={review} />

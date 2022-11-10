@@ -13,8 +13,8 @@ const Navbar = () => {
 
   const handleSignOut = () => {
     logOut()
-    .then(() => navigate('/'))
-    .catch( err => toast.error(err.code))
+      .then(() => navigate("/"))
+      .catch((err) => toast.error(err.code));
   };
 
   const menu = [
@@ -80,6 +80,7 @@ const Navbar = () => {
                 <span className="flex items-center space-x-1">
                   <Link
                     to="/profile"
+                    onClick={handleShowMenu}
                     className="text-xs hover:underline dark:text-gray-400"
                   >
                     View profile
@@ -91,10 +92,26 @@ const Navbar = () => {
           <ul className="pl-2 space-y-4">
             {menu.map((item, index) => {
               if (item.private && userInfo) {
-                return <ListItem key={index} item={item} index={index} sm={true} />;
+                return (
+                  <ListItem
+                    key={index}
+                    onClick={handleShowMenu}
+                    item={item}
+                    index={index}
+                    sm={true}
+                  />
+                );
               }
               if (!item.private) {
-                return <ListItem key={index} item={item} index={index} sm={true} />;
+                return (
+                  <ListItem
+                    key={index}
+                    onClick={handleShowMenu}
+                    item={item}
+                    index={index}
+                    sm={true}
+                  />
+                );
               }
             })}
             {userInfo ? (
@@ -111,6 +128,7 @@ const Navbar = () => {
               <>
                 <Link
                   to="/signIn"
+                  onClick={handleShowMenu}
                   className="self-center px-6 py-2 font-semibold rounded bg-sky-600 hover:bg-sky-500 duration-500 text-gray-50 inline-block mt-3"
                 >
                   Sign-In
@@ -118,6 +136,7 @@ const Navbar = () => {
                 <br />
                 <Link
                   to="signUp"
+                  onClick={handleShowMenu}
                   className="self-center px-6 py-2 font-semibold rounded bg-sky-600 hover:bg-sky-500 duration-500 text-gray-50 inline-block mt-3"
                 >
                   Sign up
@@ -168,9 +187,9 @@ const Navbar = () => {
   );
 };
 
-const ListItem = ({ item, sm }) => {
+const ListItem = ({ item, sm, onClick=()=>{} }) => {
   return (
-    <li className="font-semibold">
+    <li onClick={onClick} className="font-semibold">
       <NavLink
         to={item.to}
         end

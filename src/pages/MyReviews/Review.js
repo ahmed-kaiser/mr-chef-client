@@ -8,7 +8,7 @@ const Review = ({ review, reviews, setReviews }) => {
   const [askConfirmation, setAskConfirmation] = useState(false);
 
   const handleDeleteConfirm = () => {
-    fetch(`http://localhost:5000/my-reviews/${review._id}`, {
+    fetch(`https://mr-chef-server-ahmed-kaiser.vercel.app/my-reviews/${review._id}`, {
       method: 'delete'
     })
     .then(res => res.json())

@@ -22,9 +22,7 @@ const AddService = () => {
       ratings: 0,
     };
 
-    console.log(service);
-
-    fetch("http://localhost:5000/add_service", {
+    fetch("https://mr-chef-server-ahmed-kaiser.vercel.app/add_service", {
       method: "post",
       headers: {
         "content-type": "application/json",
