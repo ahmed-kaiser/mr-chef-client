@@ -53,7 +53,7 @@ const Contact = () => {
         </div>
         <button
           type="submit"
-          className="w-full p-3 text-sm font-bold tracking-wide uppercase rounded bg-sky-500 text-gray-100"
+          className="w-full p-3 text-sm font-bold tracking-wide uppercase rounded bg-sky-600 hover:bg-sky-500 text-gray-100 duration-300"
         >
           Send Message
         </button>
