@@ -66,8 +66,8 @@ const Review = ({ review, reviews, setReviews }) => {
                 <div className="p-3">
                   <p>Are you sure, you want to delete the review ?</p>
                   <div className="flex gap-3 mt-2 justify-center">
-                    <button onClick={handleDeleteConfirmation} className="border border-sky-600 px-2 py-1 rounded-sm text-sm font-semibold">Cancel</button>
-                    <button onClick={handleDeleteConfirm} className="border border-red-600 px-2 py-1 rounded-sm text-sm font-semibold">Confirm</button>
+                    <button onClick={handleDeleteConfirmation} className="border border-sky-600 px-2 py-1 rounded-sm text-sm font-semibold hover:text-sky-600 duration-300">Cancel</button>
+                    <button onClick={handleDeleteConfirm} className="border border-red-600 px-2 py-1 rounded-sm text-sm font-semibold hover:text-red-600 duration-300">Confirm</button>
                   </div>
                 </div>
               </div>

@@ -46,7 +46,7 @@ const AddService = () => {
         onSubmit={handleSubmit}
         className="container w-full max-w-xl p-8 mx-auto space-y-6 rounded-md shadow ng-untouched ng-pristine ng-valid"
       >
-        <h2 className="w-full text-3xl font-bold leading-tight">
+        <h2 className="w-full text-3xl font-bold leading-tight text-gray-600">
           Add a New Service
         </h2>
         <div>
@@ -58,7 +58,7 @@ const AddService = () => {
             name="title"
             placeholder="Service title"
             required
-            className="block w-full p-2 rounded focus:outline-none focus:ring focus:ring-opacity-25 focus:ring-sky-600"
+            className="block w-full p-2 rounded focus:outline-none focus:ring focus:ring-opacity-25 focus:ring-sky-600 border-gray-200"
           />
         </div>
         <div>
@@ -70,7 +70,7 @@ const AddService = () => {
             name="photoURL"
             placeholder="http://"
             required
-            className="block w-full p-2 rounded focus:outline-none focus:ring focus:ring-opacity-25 focus:ring-sky-600"
+            className="block w-full p-2 rounded focus:outline-none focus:ring focus:ring-opacity-25 focus:ring-sky-600 border-gray-200"
           />
         </div>
         <div>
@@ -83,7 +83,7 @@ const AddService = () => {
             placeholder="100"
             min={1}
             required
-            className="block w-full p-2 rounded focus:outline-none focus:ring focus:ring-opacity-25 focus:ring-sky-600"
+            className="block w-full p-2 rounded focus:outline-none focus:ring focus:ring-opacity-25 focus:ring-sky-600 border-gray-200"
           />
         </div>
         <div>
@@ -95,13 +95,13 @@ const AddService = () => {
             name="description"
             placeholder="About service..."
             required
-            className="block w-full p-2 rounded focus:outline-none focus:ring focus:ring-opacity-25 focus:ring-sky-600"
+            className="block w-full p-2 rounded focus:outline-none focus:ring focus:ring-opacity-25 focus:ring-sky-600 border-gray-200"
           ></textarea>
         </div>
         <div>
           <button
             type="submit"
-            className="w-full px-4 py-2 font-bold rounded shadow focus:outline-none focus:ring hover:ring focus:ring-opacity-50 bg-sky-600 focus:ring-sky-500 hover:ring-sky-500 text-gray-200 duration-300"
+            className="w-full px-4 py-2 font-bold rounded shadow focus:outline-none focus:ring-opacity-50 bg-sky-600 hover:bg-sky-500 text-gray-200 duration-300"
           >
             Add
           </button>

@@ -53,7 +53,7 @@ const ServiceDetail = () => {
           <p className="flex items-center gap-1 mb-5 mt-2 bg-slate-200 p-1 bg-gradient-to-r from-yellow-50 to-white">
             <span className="font-semibold">Price:</span>${service.price}
           </p>
-          <button className="self-start px-10 py-2.5 text-lg font-medium rounded-md bg-sky-600 text-gray-100">
+          <button className="self-start px-10 py-2 font-medium rounded-md bg-sky-600 hover:bg-sky-500 text-gray-100 duration-300">
             Make a Booking
           </button>
         </div>

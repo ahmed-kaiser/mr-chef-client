@@ -4,12 +4,16 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import UserAuthContext from './context/UserAuthContext';
+import 'react-photo-view/dist/react-photo-view.css';
+import { PhotoProvider } from 'react-photo-view';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <UserAuthContext>
-      <App />
+      <PhotoProvider>
+        <App />
+      </PhotoProvider>
     </UserAuthContext>
   </React.StrictMode>
 );
