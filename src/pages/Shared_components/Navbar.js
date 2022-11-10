@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import logo from "../../assets/images/logo/logo.png";
 import { RiMenuLine, RiCloseLine, RiLogoutCircleRLine } from "react-icons/ri";
 import { useContext, useState } from "react";
@@ -9,11 +9,12 @@ import toast from "react-hot-toast";
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
   const { userInfo, logOut } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleSignOut = () => {
     logOut()
-      .then(() => toast.success("Logged Out...."))
-      .catch((err) => toast.error(err.code));
+    .then(() => navigate('/'))
+    .catch( err => toast.error(err.code))
   };
 
   const menu = [
@@ -73,13 +74,12 @@ const Navbar = () => {
                 className="w-10 h-10 border rounded-full dark:bg-gray-500 dark:border-gray-700"
               />
               <div>
-                <h2 className="font-semibold">
+                <h2 className="font-semibold capitalize">
                   {userInfo.displayName || "No Name"}
                 </h2>
                 <span className="flex items-center space-x-1">
                   <Link
-                    rel="noopener noreferrer"
-                    href="#"
+                    to="/profile"
                     className="text-xs hover:underline dark:text-gray-400"
                   >
                     View profile
@@ -126,7 +126,7 @@ const Navbar = () => {
             )}
           </ul>
         </div>
-        {/* -------- Sign up/in button -------- */}
+        {/* -------- Sign up/in button for large screen -------- */}
         <div className="hidden lg:flex items-center flex-shrink-0">
           {userInfo ? (
             <>
@@ -137,7 +137,7 @@ const Navbar = () => {
                 <span>Sign-Out</span>
                 <RiLogoutCircleRLine />
               </button>
-              <Link className="flex-shrink-0">
+              <Link to="/profile" className="flex-shrink-0">
                 <img
                   src={userInfo.photoURL || profileImage}
                   alt={userInfo.displayName}

@@ -5,6 +5,7 @@ import Blog from "../pages/Blog/Blog";
 import Error from "../pages/Error/Error";
 import Home from "../pages/Home/Home";
 import MyReviews from "../pages/MyReviews/MyReviews";
+import Profile from "../pages/Profile/Profile";
 import ServiceDetail from "../pages/ServiceDetail/ServiceDetail";
 import Services from "../pages/Services/Services";
 import SignIn from "../pages/SignIn/SignIn";
@@ -47,6 +48,10 @@ const Routes = () => {
                 {
                     path: '/addService',
                     element: <RequiredAuth><AddService /></RequiredAuth>
+                },
+                {
+                    path: '/profile',
+                    element: <RequiredAuth><Profile/></RequiredAuth>
                 },
                 {
                     path: '/blog',

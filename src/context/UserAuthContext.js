@@ -8,6 +8,7 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
   signOut,
+  updateProfile,
 } from "firebase/auth";
 
 export const AuthContext = createContext();
@@ -29,6 +30,10 @@ const UserAuthContext = ({ children }) => {
     setIsLoading(true);
     return signInWithEmailAndPassword(auth, email, password)
   };
+
+  const updateUserProfile = (name, photoURL = "https://i.ibb.co/8D0XDSs/default-profile.jpg") => {
+    return updateProfile(auth.currentUser, { displayName:name, photoURL:photoURL });
+  }
 
   const signUpWithGoogle = () => {
     setIsLoading(true);
@@ -57,6 +62,7 @@ const UserAuthContext = ({ children }) => {
     isLoading,
     createUser,
     signInWithEmail,
+    updateUserProfile,
     signUpWithGoogle,
     logOut
   };

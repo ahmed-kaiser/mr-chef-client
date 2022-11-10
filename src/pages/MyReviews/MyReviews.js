@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import { AuthContext } from "../../context/UserAuthContext";
 import useScrollTop from "../../hook/useScrollTop";
 import useSetTitle from "../../hook/useSetTitle";
@@ -6,15 +7,25 @@ import Review from "./Review";
 
 const MyReviews = () => {
   const [reviews, setReviews] = useState([]);
-  const { userInfo } = useContext(AuthContext);
+  const { userInfo, logOut } = useContext(AuthContext);
   useSetTitle("My Reviews");
   useScrollTop();
   
   useEffect(() => {
-    fetch(`http://localhost:5000/my_reviews?email=${userInfo.email}`)
-    .then(res => res.json())
+    fetch(`http://localhost:5000/my_reviews?email=${userInfo.email}`, {
+      headers: {
+        authorization: `Bearer ${localStorage.getItem('userToken')}`
+      }
+    })
+    .then(res => {
+      if(res.status === 401) {
+        toast.error("Unauthorized Access...!");
+        logOut();
+      }
+      return res.json()
+    })
     .then(data => setReviews(data))
-  }, [userInfo.email]);
+  }, [userInfo.email, logOut]);
 
   return (
     <div className="py-10 mx-auto max-w-screen-xl px-4 md:px-6 ">

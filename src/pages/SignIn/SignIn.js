@@ -24,9 +24,25 @@ const SignIn = () => {
     signInWithEmail(email, password)
     .then(res => {
         toast.success(`Welcome ${res.user.displayName}`);
+        verify({ email: res.user.email })
+        form.reset();
         navigate(from, {replace:true});
     })
     .catch(err => toast.error(err.code))
+  };
+
+  const verify = (data) => {
+    fetch('http://localhost:5000/verify', {
+      method: 'post',
+      headers: {
+        'content-type' : 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+    .then(res => res.json())
+    .then(data => {
+      localStorage.setItem("userToken", data.token)
+    })
   };
 
   return (

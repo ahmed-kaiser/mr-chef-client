@@ -1,29 +1,40 @@
 import { useContext } from "react";
 import toast from "react-hot-toast";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/UserAuthContext";
 import useScrollTop from "../../hook/useScrollTop";
 import useSetTitle from "../../hook/useSetTitle";
 import SocialLinkButton from "../Shared_components/SocialLinkButton";
 
 const SignUp = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, updateUserProfile, logOut } = useContext(AuthContext);
   useSetTitle("Sign Up");
   useScrollTop();
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
+    const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
+    const confirm_password = form.confirm_password.value;
+
+    if(password !== confirm_password) {
+      toast.error("Both password didn't match");
+      return
+    }
 
     createUser(email, password)
-      .then((res) => {
-        console.log(res);
-        toast.success(`Welcome ${res.user.displayName}`);
+      .then(res => {
+        updateUserProfile(name);
       })
-      .catch((err) => toast.error(err.code));
+      .then(() => {
+        toast.success("Account Created Successfully")
+        logOut();
+        navigate('/signIn');
+      })
+      .catch(err => toast.error(err.code));
   };
 
   return (
@@ -84,6 +95,7 @@ const SignUp = () => {
                 placeholder="*******"
                 className="w-full px-3 py-2 rounded-md border-slate-200 tracking-wide focus:border-sky-600"
               />
+              <label className="text-sm text-gray-500 pl-2">** At least one digit, one uppercase and one lowercase letter required. Length min 8 character.</label>
             </div>
             <div className="space-y-2">
               <label htmlFor="password" className="text-sm">
